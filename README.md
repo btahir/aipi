@@ -2,6 +2,8 @@
 
 A simple Hono API that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response.
 
+![Demo](/demo.gif)
+
 ## Example
 
 ```javascript
