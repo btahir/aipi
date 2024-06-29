@@ -18,6 +18,18 @@ Access this at /call/HelloWorld.
 
 You can adjust parameters like temperature for desired outputs.
 
+To add your functions, just update functionDefinitions in functions.ts.
+
+Example
+
+```
+  TellJoke: {
+    prompt: 'Tell me a joke',
+    model: 'gpt-3.5-turbo',
+    args: { temperature: 0.9 },
+  },
+```
+
 ## How To Run
 
 ```
