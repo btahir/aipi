@@ -1,10 +1,12 @@
 # AIPI
 
-A simple Hono API that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response.
+A simple Hono API that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response. It also supports normal functions.
 
 ![Demo](/demo.gif)
 
 ## Example
+
+### AI Function
 
 ```javascript
 HelloWorld: {
@@ -15,6 +17,17 @@ HelloWorld: {
 ```
 
 Access this at /call/HelloWorld.
+
+### Normal Function
+
+```javascript
+Greet: {
+  func: async (options?: { name?: string }) => {
+    const name = options?.name || 'Guest'
+    return `Hello, ${name}!`
+  },
+}
+```
 
 ## Customization
 
@@ -47,3 +60,7 @@ If you have a Cloudflare account, you can deploy to Cloudflare. In package.json,
 ```
 npm run deploy
 ```
+
+## Why?
+
+Figured if Langchain can have useless abstractions and get so much attention why not me?

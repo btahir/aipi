@@ -1,7 +1,7 @@
-import { registerOpenAIFunction } from './setup'
+import { registerOpenAIFunction, registerFunction } from './setup'
 
-// Define functions
-const functionDefinitions = {
+// Define AI functions
+const aiFunctionDefinitions = {
   HelloWorld: {
     prompt: 'Say Hello, World!',
     model: 'gpt-3.5-turbo',
@@ -14,8 +14,24 @@ const functionDefinitions = {
   },
 }
 
-// Function to register the functions from the object
-function registerFunctions(definitions: {
+// Define normal functions
+const normalFunctionDefinitions = {
+  Greet: {
+    func: async (options?: { name?: string }) => {
+      const name = options?.name || 'Guest'
+      return `Hello, ${name}!`
+    },
+  },
+  Farewell: {
+    func: async (options?: { name?: string }) => {
+      const name = options?.name || 'Guest'
+      return `Goodbye, ${name}!`
+    },
+  },
+}
+
+// Function to register the AI functions
+function registerAIFunctions(definitions: {
   [key: string]: {
     prompt: string
     model?: string
@@ -27,5 +43,17 @@ function registerFunctions(definitions: {
   }
 }
 
+// Function to register the normal functions
+function registerNormalFunctions(definitions: {
+  [key: string]: {
+    func: (options?: { [key: string]: any }) => Promise<string>
+  }
+}) {
+  for (const [name, { func }] of Object.entries(definitions)) {
+    registerFunction(name, func)
+  }
+}
+
 // Register the defined functions
-registerFunctions(functionDefinitions)
+registerAIFunctions(aiFunctionDefinitions)
+registerNormalFunctions(normalFunctionDefinitions)

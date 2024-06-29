@@ -5,7 +5,7 @@ const app = new Hono()
 
 interface FunctionRegistry {
   [key: string]: (
-    apiKey: string,
+    apiKey?: string,
     options?: { [key: string]: any }
   ) => Promise<string>
 }
@@ -42,14 +42,30 @@ function registerOpenAIFunction(
   model: string = 'gpt-3.5-turbo',
   args?: { [key: string]: any }
 ) {
-  console.log(`Registering function ${name}`)
-  functionRegistry[name] = async (
-    apiKey: string,
+  console.log(`Registering AI function ai_${name}`)
+  functionRegistry[`ai_${name}`] = async (
+    apiKey?: string,
     options?: { [key: string]: any }
   ) => {
+    if (!apiKey) {
+      throw new Error('API key is required for AI functions')
+    }
     const mergedOptions = { ...args, ...options }
     return getOpenAIResponse(apiKey, prompt, model, mergedOptions)
   }
 }
 
-export { app, functionRegistry, registerOpenAIFunction }
+function registerFunction(
+  name: string,
+  func: (options?: { [key: string]: any }) => Promise<string>
+) {
+  console.log(`Registering function ${name}`)
+  functionRegistry[name] = async (
+    apiKey?: string,
+    options?: { [key: string]: any }
+  ) => {
+    return func(options)
+  }
+}
+
+export { app, functionRegistry, registerOpenAIFunction, registerFunction }

@@ -11,14 +11,17 @@ app.post('/call/:functionName', async (c) => {
     const envVars = env<{ OPENAI_API_KEY: string }>(c)
     const OPENAI_API_KEY = envVars.OPENAI_API_KEY || ''
 
-    if (!OPENAI_API_KEY) {
-      return c.text('OPENAI_API_KEY is required', 400)
-    }
-
-    const func = functionRegistry[functionName]
+    let func = functionRegistry[functionName]
 
     if (!func) {
-      return c.text(`Function ${functionName} not found`, 404)
+      func = functionRegistry[`ai_${functionName}`]
+      if (!func) {
+        return c.text(`Function ${functionName} not found`, 404)
+      }
+
+      if (!OPENAI_API_KEY) {
+        return c.text('OPENAI_API_KEY is required for AI functions', 400)
+      }
     }
 
     const response = await func(OPENAI_API_KEY, body.options)
