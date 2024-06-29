@@ -65,5 +65,4 @@ npm run deploy
 
 Figured if Langchain can have useless abstractions and get so much attention why not me?
 
-But also I think its a cool concept of having ai_ functions and be able to mix and match with normal functions without needing to rewrite any LLM logic.
-I'm sure there are better ways to abstract it away so open to feedback.
+But also I think its a cool concept of having LLM based functions and be able to mix and match with normal functions without needing to rewrite any LLM logic (you just prepend with ai_ to indicate an LLM will process the function input). I'm sure there are better ways to abstract it away so open to feedback.
