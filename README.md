@@ -33,7 +33,7 @@ Greet: {
 
 You can adjust parameters like temperature for desired outputs.
 
-To add your functions, just update functionDefinitions in functions.ts.
+To add your functions, just update aiFunctionDefinitions or normalFunctionDefinitions in functions.ts.
 
 Example
 
@@ -64,3 +64,6 @@ npm run deploy
 ## Why?
 
 Figured if Langchain can have useless abstractions and get so much attention why not me?
+
+But also I think its a cool concept of having ai_ functions and be able to mix and match with normal functions without needing to rewrite any LLM logic.
+I'm sure there are better ways to abstract it away so open to feedback.
