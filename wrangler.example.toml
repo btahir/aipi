@@ -2,7 +2,7 @@ name = "my-app"
 compatibility_date = "2023-12-01"
 
 [vars]
-OPENAI_API_KEY=""
+OPENAI_API_KEY="YOUR_OPENAI_KEY"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
