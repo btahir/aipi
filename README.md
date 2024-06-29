@@ -38,3 +38,10 @@ npm i && npm run dev
 
 You can deploy this on Cloudflare Worker as well.
 
+## Deployment
+
+If you have a Cloudflare account, you can deploy to Cloudflare. In package.json, make sure $npm_execpath is set to your package manager of choice.
+
+```
+npm run deploy
+```
