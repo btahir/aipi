@@ -1,6 +1,6 @@
 # AIPI
 
-A simple Hono API that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prmpt input and a response.
+A simple Hono API that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response.
 
 ## Example
 
