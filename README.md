@@ -22,7 +22,7 @@ To add your functions, just update functionDefinitions in functions.ts.
 
 Example
 
-```
+```javascript
   TellJoke: {
     prompt: 'Tell me a joke',
     model: 'gpt-3.5-turbo',
