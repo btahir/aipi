@@ -1,6 +1,6 @@
 # AIPI
 
-A simple ![Hono API](https://hono.dev/docs/getting-started/cloudflare-workers) that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response to give you LLM powered API endpoints. It also supports normal functions.
+A simple [Hono API](https://hono.dev/docs/getting-started/cloudflare-workers) that wraps OpenAI API calls into a friendly abstraction for LLM-based functions with a prompt input and a response to give you LLM powered API endpoints. It also supports normal functions.
 
 ![Demo](/demo.gif)
 
